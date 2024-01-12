@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import Cell from "./home/Cell";
+import Bigcell from "./home/Bigcell";
 
 class YourClassComponent extends Component {
 	render() {
 		return (
 			<div>
-				<Cell />
+				<Bigcell />
 			</div>
 		);
 	}

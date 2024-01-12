@@ -1,11 +1,14 @@
 import React, { ChangeEvent, Component } from "react";
 import Oyin from "./Oyin";
 import { Button, Input } from "antd";
+import Bigcell from "./Bigcell";
+import { LeftOutlined } from '@ant-design/icons';
 
 interface CellState {
   player1: string;
   player2: string;
-  sahifa: boolean;
+  newgames: boolean;
+  bigcells: boolean;
 }
 
 class Cell extends Component<{}, CellState> {
@@ -14,16 +17,17 @@ class Cell extends Component<{}, CellState> {
     this.state = {
       player1: "",
       player2: "",
-      sahifa: false,
+      newgames: false,
+      bigcells: false,
     };
   }
 
-  handlePlayer1Change = (event: ChangeEvent<HTMLInputElement>) => {
+  handlePlayer1 = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     this.setState({ player1: value });
   };
 
-  handlePlayer2Change = (event: ChangeEvent<HTMLInputElement>) => {
+  handlePlayer2 = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     this.setState({ player2: value });
   };
@@ -53,34 +57,47 @@ class Cell extends Component<{}, CellState> {
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
 
-      this.setState({ sahifa: true });
+      // this.setState({ newgames: true });
+      window.location.reload();
+
     }
   };
 
-  render() {
-    const { player1, player2, sahifa } = this.state;
+  handleNextButtonClick = () => {
+    this.setState({ bigcells: true });
+  };
 
-    if (sahifa) {
-      return <Oyin player1={player1} player2={player2} />;
+  render() {
+    const { player1, player2, newgames, bigcells } = this.state;
+
+    // if (newgames) {
+    //   return <Oyin player1={player1} player2={player2} />;
+    // }
+     if (bigcells) {
+      return <Bigcell />;
+
     }
 
     return (
-      <div>
-        <div className="w-full grid place-items-center">
+      <div className=" p-8">
+        <Button icon={<LeftOutlined />} onClick={this.handleNextButtonClick}>
+          Next
+        </Button>
+        <div className="w-full h-[100vh]  grid place-items-center">
           <div className="w-[200px] flex flex-col gap-3">
             <h1>1 oyinchi</h1>
             <Input
               className=""
               type="text"
               value={player1}
-              onChange={this.handlePlayer1Change}
+              onChange={this.handlePlayer1}
             />
             <h1>2 oyinchi</h1>
             <Input
               className=""
               type="text"
               value={player2}
-              onChange={this.handlePlayer2Change}
+              onChange={this.handlePlayer2}
             />
             <Button
               onClick={this.handleButtonClick}
