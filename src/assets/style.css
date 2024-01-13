@@ -2,9 +2,4 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  /* .cell {
-    @apply ;
-  } */
 
-}

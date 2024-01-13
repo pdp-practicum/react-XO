@@ -68,7 +68,7 @@ class Cell extends Component<{}, CellState> {
   };
 
   render() {
-    const { player1, player2, newgames, bigcells } = this.state;
+    const { player1, player2,  bigcells } = this.state;
 
     // if (newgames) {
     //   return <Oyin player1={player1} player2={player2} />;
@@ -83,7 +83,7 @@ class Cell extends Component<{}, CellState> {
         <Button icon={<LeftOutlined />} onClick={this.handleNextButtonClick}>
           Next
         </Button>
-        <div className="w-full h-[400px]  grid place-items-center">
+        <div className="w-full h-[500px]  grid place-items-center">
           <div className="w-[200px] flex flex-col gap-3">
             <h1>1 oyinchi</h1>
             <Input

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Bigcell from "./home/Bigcell";
 
-class YourClassComponent extends Component {
+class Main extends Component {
 	render() {
 		return (
 			<div>
@@ -11,4 +11,4 @@ class YourClassComponent extends Component {
 	}
 }
 
-export default YourClassComponent;
+export default Main;
