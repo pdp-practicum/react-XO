@@ -23,7 +23,7 @@ class Bigcell extends Component<{}, BigcellState> {
 			game: null,
 			player1: "",
 			player2: "",
-		};
+		}; 
 	}
 
 	fetchData = async () => {
